@@ -39,4 +39,10 @@ class TaskService
         $task = $this->taskRepository->findById($id);
         return $this->taskRepository->delete($task);
     }
+
+    public function updateStatus($id)
+    {
+        $task = $this->taskRepository->findById($id);
+        return $this->taskRepository->markAsCompleted($task);
+    }
 }

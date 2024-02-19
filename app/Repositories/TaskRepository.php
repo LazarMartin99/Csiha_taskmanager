@@ -31,4 +31,10 @@ class TaskRepository
     {
         return $task->delete();
     }
+
+    public function markAsCompleted(Task $task)
+    {
+        $task->status = "Completed";
+        return $task->save();
+    }
 }

@@ -19,6 +19,13 @@ class Task extends Model
     ];
 
 
+    protected static function booted()
+    {
+        static::addGlobalScope('withUser', function ($builder) {
+            $builder->with('user');
+        });
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

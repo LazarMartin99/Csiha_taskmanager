@@ -24,20 +24,21 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = $this->taskService->getAllTasks();
-        return Inertia::render('Tasks/Index', ['tasks' => $tasks]);
+        return Inertia::render('Dashboard', ['tasks' => $tasks]);
     }
 
     public function create()
     {
         $users = $this->userService->getAllUsers();
-        return Inertia::render('Tasks/Create', ['users' => $users]);
+        return Inertia::render('Tasks/CreateTask', ['users' => $users]);
     }
     
     public function edit($id)
     {
         $task = $this->taskService->getTaskById($id);
+        $users = $this->userService->getAllUsers();
     
-        return Inertia::render('Tasks/Edit', ['task' => $task]);
+        return Inertia::render('Tasks/UpdateTask', ['task' => $task, 'users'=> $users]);
     }
 
     public function store(StoreTaskRequest $request)
@@ -57,5 +58,12 @@ class TaskController extends Controller
     {
         $this->taskService->deleteTask($id);
         return redirect()->route('tasks.index');
+    }
+
+    public function markAsCompleted($id)
+    {
+        $this->taskService->updateStatus($id);
+        return redirect()->route('tasks.index');
+ 
     }
 }
