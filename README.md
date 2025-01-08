@@ -1,15 +1,13 @@
-# Csiha_taskmanager
-Taskmanager app with laravel-vue-inertia
-
+# Basic Taskmanager app with laravel-vue-inertia
 Feltételek a telepítéshez  
 	-Docker Desktop  
 	-Composer
 
 1. Projekt klónozása:  
-	-git clone https://github.com/LazarMartin99/Csiha_taskmanager.git  
+	-git clone https://github.com/LazarMartin99/basic_taskmanager.git  
 
 2. Függőségek telepítése és az alkalmazás futtatása  
-	-cd Csiha_taskmanager  
+	-cd basic_taskmanager  
 	-composer install  
 	-php artisan sail:install  
 	-./vendor/bin/sail up  
